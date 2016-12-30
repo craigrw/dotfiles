@@ -1,0 +1,8 @@
+alias prodjump='ssh -i ~/.ssh/bench-tools.pem jump@prod-jump.bench.co \
+
+alias home="git --work-tree=$HOME --git-dir=$HOME/.files.git"
+alias hadd="home add -f"
+alias hcommit="home commit -a"
+alias hpush="home push origin master"
+alias hpull="home pull origin master"
+alias hstatus="home status"
