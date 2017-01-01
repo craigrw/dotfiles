@@ -6,6 +6,8 @@ set -o pipefail
 _macos_customizations () {
   # show all hidden files
   defaults write com.apple.finder AppleShowAllFiles YES
+  # Display full POSIX path as Finder window title
+  defaults write com.apple.finder _FXShowPosixPathInTitle YES
   killall Finder
 
   # autohide dock

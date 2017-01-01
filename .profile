@@ -9,8 +9,10 @@ export EDITOR='vim'
 
 export PATH="$PATH:$HOME/.bin"
 
-export NVM_DIR="$HOME/.nvm"
-. "$(brew --prefix nvm)/nvm.sh"
+if [[ -e $HOME/.nvm ]]; then
+  export NVM_DIR="$HOME/.nvm"
+  . "$(brew --prefix nvm)/nvm.sh"
+fi
 
 source "$HOME/.aliases"
 
