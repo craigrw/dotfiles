@@ -5,59 +5,53 @@ local layout = require 'hs.layout'
 local logger = hs.logger.new('screens', 'debug')
 
 local locations = {
-  'laptop', 
-  'home', 
+  'laptop',
+  'home',
   'office'
 }
 
 local locationsByScreen = {
-  ['Color LCD'] = 'laptop', 
-  ['ASUS PB278'] = 'home', 
-  [''] = 'office'
+  ['Color LCD'] = 'laptop',
+  ['ASUS PB278'] = 'home',
+  [''] = 'bench'
 }
+
+local left = {x=0, y=0, w=0.45, h=1}
+local right = {x=0.45, y=0, w=0.55, h=1}
+local full = layout.maximized
 
 local locationLayouts = {
   laptop = {
-    { 'iTerm2', nil, 'Color LCD', layout.maximized, nil, nil },
-    { 'IntelliJ IDEA', nil, 'Color LCD', layout.maximized, nil, nil },
-    { 'Sublime Text', nil, 'Color LCD', layout.maximized, nil, nil }
+    { 'iTerm2', nil, 'Color LCD', full, nil, nil },
+    { 'Sublime Text', nil, 'Color LCD', full, nil, nil },
+    { 'IntelliJ IDEA', nil, 'Color LCD', full, nil, nil }
   },
   home = {
-    { 'iTerm2', nil, 'ASUS PB278', {x=0, y=0, w=0.45, h=1}, nil, nil },
-    { 'Sublime Text', nil, 'ASUS PB278', {x=0.45, y=0, w=0.55, h=1}, nil, nil },
-    { 'IntelliJ IDEA', nil, 'ASUS PB278', {x=0.45, y=0, w=0.55, h=1}, nil, nil }
+    { 'Safari', nil, 'ASUS PB278', right, nil, nil },
+    { 'iTerm2', nil, 'ASUS PB278', left, nil, nil },
+    { 'Sublime Text', nil, 'ASUS PB278', right, nil, nil },
+    { 'IntelliJ IDEA', nil, 'ASUS PB278', right, nil, nil },
+    { 'IntelliJ IDEA', 'Run', 'ASUS PB278', left, nil, nil }
   }
 }
 
-local function detectLocation() 
-  primary = screen.primaryScreen()
-  location = locationsByScreen[primary:name()]
+local function detectLocation()
+  local primary = screen.primaryScreen()
+  local location = locationsByScreen[primary:name()]
   logger.d('Detected location ' .. location)
-
-  -- hs.fnutils.ieach(spaces.query(spaces.masks.currentSpaces), function (e)
-  --   logger.d(e)
-  -- end)
-  -- screenUUID = spaces.mainScreenUUID()
-  -- logger.d(screenUUID)
-  -- hs.fnutils.ieach(spaces.spacesByScreenUUID(screenUUID), function (e)
-  --   logger.d(e)
-  -- end)
-  -- logger.d(screen:spaces(screen.primaryScreen()))
-  -- logger.d() -- spaces.UUIDforScreen(screen.primaryScreen())))
   return location
 end
 
 local mod = {}
 
 function mod.setLayout()
-  location = detectLocation()
+  local location = detectLocation()
   hs.alert.show(location)
   layout.apply(locationLayouts[location])
 end
 
 function mod.init()
-  -- hs.grid.setGrid('10x5')
-  -- hs.hotkey.bind({"cmd", "alt", "ctrl"}, "g", hs.grid.show)
+  hs.hotkey.bind({"cmd", "alt", "ctrl"}, "l", mod.setLayout)
   hs.application.enableSpotlightForNameSearches(false)
 
   local screenWatcher = screen.watcher.new(mod.setLayout):start()

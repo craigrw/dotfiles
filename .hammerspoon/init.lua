@@ -1,4 +1,5 @@
 local screens = require "screens"
+local caffeine = require "caffeine"
 local reload = require "reload"
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Left", function()
@@ -28,4 +29,5 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Right", function()
 end)
 
 screens.init()
+caffeine.init()
 reload.init()

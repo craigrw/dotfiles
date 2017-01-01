@@ -8,6 +8,8 @@ _macos_customizations () {
   defaults write com.apple.finder AppleShowAllFiles YES
   # Display full POSIX path as Finder window title
   defaults write com.apple.finder _FXShowPosixPathInTitle YES
+  # Always open everything in Finder's list view
+  defaults write com.apple.Finder FXPreferredViewStyle Nlsv
   killall Finder
 
   # autohide dock
@@ -17,6 +19,9 @@ _macos_customizations () {
   # set dock autohide delay to 0 seconds
   defaults write com.apple.Dock autohide-delay -int 0
   killall Dock
+
+  defaults write com.apple.screensaver askForPassword -bool true
+  defaults write com.apple.screensaver askForPasswordDelay -int 0
 
   # enable safari developer menu
   defaults write com.apple.Safari IncludeDebugMenu 1
@@ -36,7 +41,13 @@ _macos_customizations () {
 
   defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
 
-  defaults write com.apple.LaunchServices LSHandlers -array-add '{LSHandlerContentType=public.plain-text;LSHandlerRoleAll=com.sublimetext.3;}'
+  # flycut 
+  defaults write com.generalarcade.flycut loadOnStartup -bool true
+  defaults write com.generalarcade.flycut removeDuplicates -bool true
+  # Run the screensaver if we're in the bottom-left hot corner.
+  defaults write com.apple.dock wvous-bl-corner -int 5
+  defaults write com.apple.dock wvous-bl-modifier -int 0
+
 
   # update system settings
   killall SystemUIServer
@@ -53,6 +64,7 @@ _linux_apps () {
 
 _general () {
   chsh -s $(grep /zsh$ /etc/shells | tail -1)
+  chmod +x $HOME/.bin/*
 }
 
 
