@@ -1,3 +1,4 @@
+cask '1password'
 cask 'dropbox'
 cask 'flux'
 cask 'hammerspoon'
