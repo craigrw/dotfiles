@@ -9,8 +9,10 @@ Session.vim
 .Spotlight-V100
 .Trashes
 
-# Python VirtualEnnv
+# Python
 venv/
+*.pyc
+
 
 # IntelliJ
 .idea
