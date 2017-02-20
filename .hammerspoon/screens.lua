@@ -15,11 +15,13 @@ local locations = {
 local locationsByPrimaryScreen = {
   ['Color LCD'] = 'laptop',
   ['ASUS PB278'] = 'home',
-  ['DELL P2717H'] = 'bench'
+  ['DELL P2714H'] = 'bench'
 }
 
-local left = {x=0, y=0, w=0.45, h=1}
-local right = {x=0.45, y=0, w=0.55, h=1}
+local leftSmall = {x=0, y=0, w=0.45, h=1}
+local rightLarge = {x=0.45, y=0, w=0.55, h=1}
+local leftLarge = {x=0, y=0, w=0.60, h=1}
+local rightSmall = {x=0.60, y=0, w=0.40, h=1}
 local full = layout.maximized
 
 local function screen1()
@@ -64,21 +66,21 @@ local locationLayouts = {
   },
   home = {
     { 'Google Chrome', nil, laptop, full, nil, nil },
-    { 'Safari', nil, monitor1, right, nil, nil },
+    { 'Safari', nil, monitor1, rightLarge, nil, nil },
     { 'Slack', nil, laptop, full, nil, nil },
     { 'iTunes', nil, laptop, full, nil, nil },
-    { 'iTerm2', nil, monitor1, left, nil, nil },
-    { 'Sublime Text', nil, monitor1, right, nil, nil },
-    { 'IntelliJ IDEA', nil, monitor1, right, nil, nil },
-    { 'IntelliJ IDEA', 'Run', monitor1, left, nil, nil }
+    { 'iTerm2', nil, monitor1, leftSmall, nil, nil },
+    { 'Sublime Text', nil, monitor1, rightLarge, nil, nil },
+    { 'IntelliJ IDEA', nil, monitor1, rightLarge, nil, nil },
+    { 'IntelliJ IDEA', 'Run', monitor1, leftSmall, nil, nil }
   },
   bench = {
     { 'Google Chrome', nil, laptop, full, nil, nil },
     { 'Slack', nil, laptop, full, nil, nil },
     { 'iTunes', nil, laptop, full, nil, nil },
-    -- { 'iTerm2', nil, monitor2, full, nil, nil },
-    { 'IntelliJ IDEA', nil, monitor1, full, nil, nil },
-    { 'Sublime Text', nil, monitor1, full, nil, nil } 
+    { 'iTerm2', nil, monitor2, full, nil, nil },
+    { 'IntelliJ IDEA', nil, monitor1, leftLarge, nil, nil },
+    { 'Sublime Text', nil, monitor1, leftLarge, nil, nil } 
   }
 }
 
