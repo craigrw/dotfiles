@@ -22,6 +22,8 @@ _macos_customizations () {
 
   defaults write com.apple.screensaver askForPassword -bool true
   defaults write com.apple.screensaver askForPasswordDelay -int 0
+  defaults -currentHost write com.apple.screensaver moduleDict -dict-add path -string "/Library/Screen Savers/Google Featured Photos.saver"
+  defaults -currentHost write com.apple.screensaver moduleDict -dict-add moduleName -string "Google Featured Photos"
 
   # enable safari developer menu
   defaults write com.apple.Safari IncludeDebugMenu 1
