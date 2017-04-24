@@ -29,5 +29,5 @@ hs.hotkey.bind({"cmd", "alt", "ctrl"}, "Right", function()
 end)
 
 screens.init()
-caffeine.init()
+-- caffeine.init()
 reload.init()

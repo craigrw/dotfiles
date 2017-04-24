@@ -1,4 +1,4 @@
-alias prodjump='ssh -i ~/.ssh/bench-tools.pem jump@jump.in.bench.co \
+alias prodjump='ssh craig@jump.in.bench.co \
 
 alias home="git --work-tree=$HOME --git-dir=$HOME/.files.git"
 alias hadd="home add -f"
