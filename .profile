@@ -14,6 +14,8 @@ if [[ -e $HOME/.nvm ]]; then
   . "$(brew --prefix nvm)/nvm.sh"
 fi
 
+export DOCKER_HOST=tcp://10.11.12.13:2375
+
 source "$HOME/.aliases"
 
 test -e /usr/libexec/java_home && export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
