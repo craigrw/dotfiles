@@ -15,7 +15,7 @@ local locations = {
 local locationsByPrimaryScreen = {
   ['Color LCD'] = 'laptop',
   ['ASUS PB278'] = 'home',
-  ['DELL P2714H'] = 'bench'
+  ['DELL P2717H'] = 'bench'
 }
 
 local leftSmall = {x=0, y=0, w=0.45, h=1}
