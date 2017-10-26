@@ -79,7 +79,7 @@ local locationLayouts = {
     { 'Slack', nil, laptop, full, nil, nil },
     { 'iTunes', nil, laptop, full, nil, nil },
     { 'iTerm2', nil, monitor2, full, nil, nil },
-    { 'IntelliJ IDEA', nil, monitor1, leftLarge, nil, nil },
+    { 'IntelliJ IDEA', nil, monitor1, full, nil, nil },
     { 'Sublime Text', nil, monitor1, leftLarge, nil, nil } 
   }
 }
