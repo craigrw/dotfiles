@@ -15,7 +15,7 @@ local locations = {
 local locationsByPrimaryScreen = {
   ['Color LCD'] = 'laptop',
   ['ASUS PB278'] = 'home',
-  ['DELL P2717H'] = 'bench'
+  ['DELL P2714H'] = 'bench'
 }
 
 local leftSmall = {x=0, y=0, w=0.45, h=1}
@@ -78,9 +78,9 @@ local locationLayouts = {
     { 'Google Chrome', nil, laptop, full, nil, nil },
     { 'Slack', nil, laptop, full, nil, nil },
     { 'iTunes', nil, laptop, full, nil, nil },
-    { 'iTerm2', nil, monitor2, full, nil, nil },
-    { 'IntelliJ IDEA', nil, monitor1, full, nil, nil },
-    { 'Sublime Text', nil, monitor1, leftLarge, nil, nil } 
+    { 'iTerm2', nil, monitor1, full, nil, nil },
+    { 'IntelliJ IDEA', nil, monitor2, full, nil, nil },
+    { 'Sublime Text', nil, monitor2, leftLarge, nil, nil } 
   }
 }
 
