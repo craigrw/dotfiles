@@ -12,6 +12,38 @@ _macos_customizations () {
   defaults write com.apple.Finder FXPreferredViewStyle Nlsv
   killall Finder
 
+  # Tap to click
+  defaults write com.apple.AppleMultitouchTrackpad Clicking -bool true
+  # Tap with two fingers to emulate right click
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadRightClick -bool true
+  # Enable three finger tap (look up)
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerTapGesture -int 2
+  # Enable three finger drag
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerDrag -bool true
+  # Zoom in or out
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadPinch -bool true
+  # Smart zoom, double-tap with two fingers
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerDoubleTapGesture -bool true
+  # Rotate
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadRotate -bool true
+  # Notification Center
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadTwoFingerFromRightEdgeSwipeGesture -int 3
+  # Swipe between pages with two fingers
+  defaults write NSGlobalDomain AppleEnableSwipeNavigateWithScrolls -bool true
+  # Swipe between full-screen apps
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerHorizSwipeGesture -int 2
+  # Enable other multi-finger gestures
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadThreeFingerVertSwipeGesture -int 2
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerVertSwipeGesture -int 2
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerPinchGesture -int 2
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadFourFingerHorizSwipeGesture -int 2
+  defaults write com.apple.AppleMultitouchTrackpad TrackpadFiveFingerPinchGesture -int 2
+
+  defaults write com.apple.dock showMissionControlGestureEnabled -bool true
+  defaults write com.apple.dock showAppExposeGestureEnabled -bool true
+  defaults write com.apple.dock showDesktopGestureEnabled -bool true
+  defaults write com.apple.dock showLaunchpadGestureEnabled -bool true
+
   # autohide dock
   defaults write com.apple.dock autohide -bool true
   # fade hidden apps in dock
@@ -55,6 +87,14 @@ _macos_customizations () {
   killall SystemUIServer
 }
 
+_powerline_fonts () {
+  git clone https://github.com/powerline/fonts.git --depth=1
+  cd fonts
+  ./install.sh
+  cd ..
+  rm -rf fonts
+}
+
 _macos_apps () {
   xcode-select --install
   brew bundle --global
@@ -65,6 +105,8 @@ _linux_apps () {
 }
 
 _general () {
+  _powerline_fonts
+
   chsh -s $(grep /zsh$ /etc/shells | tail -1)
   chmod +x $HOME/.bin/*
 }
