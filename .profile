@@ -16,6 +16,8 @@ fi
 
 export DOCKER_HOST=tcp://10.11.12.13:2375
 
+export SBT_OPTS='-Xmx2G'
+
 source "$HOME/.aliases"
 
 test -e /usr/libexec/java_home && export JAVA_HOME="$(/usr/libexec/java_home -v 1.8)"
