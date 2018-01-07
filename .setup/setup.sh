@@ -87,7 +87,9 @@ _macos_customizations () {
   killall SystemUIServer
 }
 
-_powerline_fonts () {
+_powerline () {
+  pip2 install --user powerline-status
+
   git clone https://github.com/powerline/fonts.git --depth=1
   cd fonts
   ./install.sh
@@ -105,7 +107,7 @@ _linux_apps () {
 }
 
 _general () {
-  _powerline_fonts
+  _powerline
 
   chsh -s $(grep /zsh$ /etc/shells | tail -1)
   chmod +x $HOME/.bin/*
