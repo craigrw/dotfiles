@@ -7,7 +7,7 @@ source $HOME/.profile
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-#ZSH_THEME="agnoster"
+ZSH_THEME="agnoster"
 
 unsetopt share_history
 
@@ -53,14 +53,15 @@ COMPLETION_WAITING_DOTS="true"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git mvn sbt scala mysql osx tmux vagrant brew extract history sublime nvm node docker docker-compose aws postgres github common-aliases zsh-autosuggestions)
+plugins=(osx git)
+#plugins=(git mvn sbt scala mysql osx tmux vagrant brew extract history sublime nvm node docker docker-compose aws postgres github common-aliases zsh-autosuggestions)
 
 # User configuration
 
 # export PATH="/usr/bin:/bin:/usr/sbin:/sbin:$PATH"
 # export MANPATH="/usr/local/man:$MANPATH"
 
-source $ZSH/oh-my-zsh.sh
+source $ZSH/oh-my-zsh.sh 
 
 
 
@@ -80,7 +81,7 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
+#source /usr/local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
 
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

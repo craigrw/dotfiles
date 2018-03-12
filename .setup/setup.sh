@@ -107,7 +107,7 @@ _linux_apps () {
 }
 
 _general () {
-  _powerline
+#  _powerline
 
   chsh -s $(grep /zsh$ /etc/shells | tail -1)
   chmod +x $HOME/.bin/*
