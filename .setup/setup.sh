@@ -111,6 +111,9 @@ _general () {
 
   chsh -s $(grep /zsh$ /etc/shells | tail -1)
   chmod +x $HOME/.bin/*
+
+  mkdir ~/.oh-my-zsh/custom/themes
+  cp ~/.setup/craig.zsh-theme ~/.oh-my-zsh/custom/themes/
 }
 
 
