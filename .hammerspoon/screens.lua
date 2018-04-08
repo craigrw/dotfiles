@@ -15,7 +15,7 @@ local locations = {
 local locationsByPrimaryScreen = {
   ['Color LCD'] = 'laptop',
   ['ASUS PB278'] = 'home',
-  ['DELL P2714H'] = 'bench'
+  ['DELL P2715Q'] = 'bench'
 }
 
 local leftSmall = {x=0, y=0, w=0.45, h=1}
@@ -76,12 +76,22 @@ local locationLayouts = {
   },
   bench = {
     { 'Google Chrome', nil, laptop, full, nil, nil },
+    { 'Safari', nil, monitor1, leftLarge, nil, nil },
     { 'Slack', nil, laptop, full, nil, nil },
     { 'iTunes', nil, laptop, full, nil, nil },
-    { 'iTerm2', nil, monitor1, full, nil, nil },
-    { 'IntelliJ IDEA', nil, monitor2, full, nil, nil },
-    { 'Sublime Text', nil, monitor2, leftLarge, nil, nil } 
+    { 'iTerm2', nil, monitor1, rightSmall, nil, nil },
+    { 'Sublime Text', nil, monitor1, leftLarge, nil, nil },
+    { 'IntelliJ IDEA', nil, monitor1, leftLarge, nil, nil },
+    { 'IntelliJ IDEA', 'Run', monitor1, rightSmall, nil, nil }
   }
+  -- {
+  --   { 'Google Chrome', nil, laptop, full, nil, nil },
+  --   { 'Slack', nil, laptop, full, nil, nil },
+  --   { 'iTunes', nil, laptop, full, nil, nil },
+  --   { 'iTerm2', nil, monitor1, full, nil, nil },
+  --   { 'IntelliJ IDEA', nil, monitor2, full, nil, nil },
+  --   { 'Sublime Text', nil, monitor2, leftLarge, nil, nil } 
+  -- }
 }
 
 -- local locationApplications = fnutils.map(locationLayouts, function (locationLayout)
